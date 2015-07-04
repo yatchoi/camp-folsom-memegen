@@ -73,9 +73,10 @@ class MemeGenerator
         end
       end
 
-      output_path = "/tmp/meme-#{Time.now.to_i}.jpeg"
-      canvas.write(output_path)
-      output_path
+      filename = "meme-#{Time.now.to_i}.jpeg"
+      write_path = "./public/meme/#{filename}"
+      canvas.write(write_path)
+      filename
     end
 
     private
