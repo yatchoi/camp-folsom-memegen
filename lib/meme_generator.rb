@@ -1,4 +1,4 @@
-require "RMagick"
+require "rmagick"
 require "fileutils"
 require "open-uri"
 
