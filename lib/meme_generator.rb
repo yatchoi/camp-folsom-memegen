@@ -1,5 +1,6 @@
 require "RMagick"
 require "fileutils"
+require "open-uri"
 
 class MemeGenerator
   VERSION = "1.0.9"
@@ -31,7 +32,9 @@ class MemeGenerator
       top = (top || '').upcase
       bottom = (bottom || '').upcase
 
-      canvas = Magick::ImageList.new(path)
+      # canvas = Magick::ImageList.new(path)
+      canvas = Magick::ImageList.new.from_blob(open(path).read)
+
       image = canvas.first
 
       draw = Magick::Draw.new
