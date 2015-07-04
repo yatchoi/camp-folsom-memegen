@@ -16,7 +16,8 @@ get '/memegen' do
   DirectoryCleaner::clean
   img = MemeGenerator::generate(image, header, footer)
 
-  return "<img src='/meme/#{img}'/>"
+  path = "http://#{request.host_with_port}/meme/#{img}"
+  return "<img src='#{path}'/>"
 end
 
 post '/memegen' do
@@ -30,5 +31,6 @@ post '/memegen' do
   DirectoryCleaner::clean
   img = MemeGenerator::generate(image, header, footer)
 
-  return "/meme/#{img}"
+  path = "http://#{request.host_with_port}/meme/#{img}"
+  return path
 end
