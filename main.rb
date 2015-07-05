@@ -17,7 +17,7 @@ get '/memegen' do
   img = MemeGenerator::generate(image, header, footer)
 
   path = "http://#{request.host_with_port}/meme/#{img}"
-  return "<img src='#{path}'/>"
+  return path
 end
 
 post '/memegen' do
