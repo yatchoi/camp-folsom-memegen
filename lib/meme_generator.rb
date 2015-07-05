@@ -11,6 +11,7 @@ class MemeGenerator
     :yat => './photos/yatchoi.jpg',
     :mark => './photos/markpan.jpg',
     :mari => './photos/marielreed.jpg'
+    :fannie => './photos/fanniewat.jpg'
   }
 
   class << self
