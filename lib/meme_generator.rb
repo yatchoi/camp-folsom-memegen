@@ -7,6 +7,12 @@ class MemeGenerator
 
   INTERLINE_SPACING_RATIO = 3
 
+  BASE_PHOTOS = {
+    :yat => './photos/yatchoi.jpg',
+    :mark => './photos/markpan.jpg',
+    :mari => './photos/marielreed.jpg'
+  }
+
   class << self
 
     # @return [Array<String>] Returns a list of short names for memes
@@ -28,12 +34,14 @@ class MemeGenerator
       end
     end
 
-    def generate(path, top, bottom)
+    def generate(name, top, bottom)
       top = (top || '').upcase
       bottom = (bottom || '').upcase
 
-      # canvas = Magick::ImageList.new(path)
-      canvas = Magick::ImageList.new.from_blob(open(path).read)
+      path = BASE_PHOTOS[name.to_sym]
+
+      canvas = Magick::ImageList.new(path)
+      # canvas = Magick::ImageList.new.from_blob(open(path).read)
 
       image = canvas.first
 
